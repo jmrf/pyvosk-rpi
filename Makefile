@@ -16,25 +16,25 @@ init-multi-build:
 build-test-docker:
 	docker buildx build --push \
 		--platform linux/arm/v7 \
-		-t jmrf/pyvosk-test:0.3.32-cp37 \
+		-t jmrf/pyvosk-test-rpi:0.3.32-cp37 \
 		-f dockerfiles/Dockerfile.test .
 
 build-vosk-server-docker:
 	docker buildx build --push \
 		--platform linux/arm/v7 \
-		-t jmrf/vosk-server:0.3.32-cp37 \
+		-t jmrf/vosk-server-rpi:0.3.32-cp37 \
 		-f dockerfiles/Dockerfile.vosk-server .
 
 run-test-docker:
 	docker run -it \
 		--device /dev/snd:/dev/snd \
 		--entrypoint /bin/bash  \
-		jmrf/pyvosk-test:0.3.32-cp37
+		jmrf/pyvosk-test-rpi:0.3.32-cp37
 
 run-vosk-server-docker:
 	docker run -it \
 		-p 2700:2700 \
-		jmrf/vosk-server:0.3.32-cp37
+		jmrf/vosk-server-rpi:0.3.32-cp37
 
 tag:
 	git tag $$( python -c 'import .; print(..__version__)' )
