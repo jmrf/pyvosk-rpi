@@ -1,0 +1,6 @@
+dockerfiles/
+scripts/
+
+Makefile
+*.zip
+
