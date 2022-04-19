@@ -60,5 +60,5 @@ make build-test-docker
 
 ```bash
 # To build the vosk-server for armv7
-build-vosk-server-docker
+make build-vosk-server-docker
 ```
